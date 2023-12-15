@@ -15,7 +15,7 @@ def move_wrap(obj, move_x, move_y):
     xy = canvas.coords(obj)
     print(xy)
     if xy[0] <= 0:
-        canvas.move(obj, WIDTH, 10)
+        canvas.move(obj, WIDTH, 0)
     if xy[0] >= WIDTH:
         canvas.move(obj, -WIDTH, 10)
     if xy[0] <= 0:
@@ -25,13 +25,13 @@ def move_wrap(obj, move_x, move_y):
 
 def key_pressed(event):
     if event.keysym == 'Up':
-        move_wrap(player, 0, -step)
-    elif event.keysym == 'Doun':
-        move_wrap(player, 0, step)
+        canvas.move(player, 0, -20)
+    elif event.keysym == 'Down':
+        canvas.move(player, 0, 20)
     elif event.keysym == 'Right':
-        move_wrap(player, step, 0,)
+        canvas.move(player, 20, 0,)
     elif event.keysym == 'Left':
-        move_wrap(player, -step, 0)
+        canvas.move(player, -20, 0)
 
 master = tkinter.Tk()
 
@@ -41,7 +41,7 @@ N_Y = 10
 WIDTH = step * N_X
 HEIGHT = step * N_Y
 a = False
-player_pic = tkinter.PhotoImage(file = r".\sr2a825453e1baws3.png")
+player_pic = tkinter.PhotoImage(file = r".\pixil-frame-0.png")
 
 canvas = tkinter.Canvas(master, bg = "white", width = WIDTH, height = HEIGHT)
 
